@@ -1,0 +1,240 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd3xmywgnq3wl"]
+
+[ext_resource type="Script" path="res://addons/bounded_terrain_generator/terrain_generator_dock.gd" id="1_2f60w"]
+
+[node name="TerrainGeneratorDock" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2f60w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Bounded Terrain Generator"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TypeSection" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TypeLabel" type="Label" parent="VBoxContainer/TypeSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Terrain Type:"
+
+[node name="TypeOption" type="OptionButton" parent="VBoxContainer/TypeSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "Crater"
+popup/item_1/text = "Canyon"
+popup/item_1/id = 1
+popup/item_2/text = "Cave"
+popup/item_2/id = 2
+
+[node name="PresetSection" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PresetLabel" type="Label" parent="VBoxContainer/PresetSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Preset:"
+
+[node name="PresetOption" type="OptionButton" parent="VBoxContainer/PresetSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 7
+popup/item_0/text = "Custom"
+popup/item_1/text = "Small Crater"
+popup/item_1/id = 1
+popup/item_2/text = "Large Impact Site"
+popup/item_2/id = 2
+popup/item_3/text = "Narrow Canyon"
+popup/item_3/id = 3
+popup/item_4/text = "Wide Valley"
+popup/item_4/id = 4
+popup/item_5/text = "Small Cave"
+popup/item_5/id = 5
+popup/item_6/text = "Large Cavern"
+popup/item_6/id = 6
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SizeSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SizeLabel" type="Label" parent="VBoxContainer/SizeSection"]
+layout_mode = 2
+text = "Area Size:"
+
+[node name="SizeSlider" type="HSlider" parent="VBoxContainer/SizeSection"]
+layout_mode = 2
+min_value = 50.0
+max_value = 200.0
+value = 50.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="ChunksSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ChunksLabel" type="Label" parent="VBoxContainer/ChunksSection"]
+layout_mode = 2
+text = "Chunks (Size Multiplier):"
+
+[node name="ChunksSlider" type="HSlider" parent="VBoxContainer/ChunksSection"]
+layout_mode = 2
+min_value = 1.0
+max_value = 6.0
+value = 1.0
+tick_count = 6
+ticks_on_borders = true
+
+[node name="HeightSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HeightLabel" type="Label" parent="VBoxContainer/HeightSection"]
+layout_mode = 2
+text = "Wall Height:"
+
+[node name="HeightSlider" type="HSlider" parent="VBoxContainer/HeightSection"]
+layout_mode = 2
+tick_count = 5
+ticks_on_borders = true
+
+[node name="SteepSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SteepLabel" type="Label" parent="VBoxContainer/SteepSection"]
+layout_mode = 2
+text = "Wall Steepness:"
+
+[node name="SteepSlider" type="HSlider" parent="VBoxContainer/SteepSection"]
+layout_mode = 2
+tick_count = 5
+ticks_on_borders = true
+
+[node name="RoughnessSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RoughnessLabel" type="Label" parent="VBoxContainer/RoughnessSection"]
+layout_mode = 2
+text = "Floor Roughness:"
+
+[node name="RoughnessSlider" type="HSlider" parent="VBoxContainer/RoughnessSection"]
+layout_mode = 2
+tick_count = 5
+ticks_on_borders = true
+
+[node name="ElevationSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ElevationLabel" type="Label" parent="VBoxContainer/ElevationSection"]
+layout_mode = 2
+text = "Floor Elevation:"
+
+[node name="ElevationSlider" type="HSlider" parent="VBoxContainer/ElevationSection"]
+layout_mode = 2
+min_value = -10.0
+max_value = 10.0
+tick_count = 5
+ticks_on_borders = true
+
+[node name="SeedSection" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SeedLabel" type="Label" parent="VBoxContainer/SeedSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Noise Seed:"
+
+[node name="SeedSpin" type="SpinBox" parent="VBoxContainer/SeedSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 999999.0
+rounded = true
+
+[node name="DirectionSection" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DirLabel" type="Label" parent="VBoxContainer/DirectionSection"]
+layout_mode = 2
+text = "Direction:"
+
+[node name="DirXSpin" type="SpinBox" parent="VBoxContainer/DirectionSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -1.0
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="DirYSpin" type="SpinBox" parent="VBoxContainer/DirectionSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -1.0
+max_value = 1.0
+step = 0.1
+
+[node name="AdvancedSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="AdvancedLabel" type="Label" parent="VBoxContainer/AdvancedSection"]
+layout_mode = 2
+text = "Advanced Settings:"
+
+[node name="RimLabel" type="Label" parent="VBoxContainer/AdvancedSection"]
+layout_mode = 2
+text = "Rim Height:"
+
+[node name="RimSlider" type="HSlider" parent="VBoxContainer/AdvancedSection"]
+layout_mode = 2
+max_value = 5.0
+value = 2.0
+tick_count = 6
+ticks_on_borders = true
+
+[node name="EdgeLabel" type="Label" parent="VBoxContainer/AdvancedSection"]
+layout_mode = 2
+text = "Edge Noise:"
+
+[node name="EdgeSlider" type="HSlider" parent="VBoxContainer/AdvancedSection"]
+layout_mode = 2
+max_value = 0.5
+step = 0.05
+value = 0.1
+tick_count = 6
+ticks_on_borders = true
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonSection" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PreviewButton" type="Button" parent="VBoxContainer/ButtonSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Generate Preview"
+
+[node name="ApplyButton" type="Button" parent="VBoxContainer/ButtonSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Apply To Scene"

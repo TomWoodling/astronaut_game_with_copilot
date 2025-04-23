@@ -1,0 +1,322 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc4feouf7uyli"]
+
+[ext_resource type="Script" path="res://addons/interior_cave_generator/interior_cave_generator_dock.gd" id="1_0lkf4"]
+
+[node name="CaveGeneratorDock" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0lkf4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="PresetSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PresetSection"]
+layout_mode = 2
+text = "Presets"
+horizontal_alignment = 1
+
+[node name="PresetOption" type="OptionButton" parent="VBoxContainer/PresetSection"]
+layout_mode = 2
+selected = 0
+item_count = 6
+popup/item_0/text = "Custom"
+popup/item_1/text = "Small Chamber"
+popup/item_1/id = 1
+popup/item_2/text = "Large Cavern"
+popup/item_2/id = 2
+popup/item_3/text = "Tunnel Section"
+popup/item_3/id = 3
+popup/item_4/text = "Cenote"
+popup/item_4/id = 4
+popup/item_5/text = "Underground Dome"
+popup/item_5/id = 5
+
+[node name="PrimitiveSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PrimitiveSection"]
+layout_mode = 2
+text = "Primitive Settings"
+horizontal_alignment = 1
+
+[node name="PrimitiveType" type="OptionButton" parent="VBoxContainer/PrimitiveSection"]
+layout_mode = 2
+selected = 0
+item_count = 5
+popup/item_0/text = "Cylinder"
+popup/item_1/text = "Cone"
+popup/item_1/id = 1
+popup/item_2/text = "Sphere"
+popup/item_2/id = 2
+popup/item_3/text = "Capsule"
+popup/item_3/id = 3
+popup/item_4/text = "Torus"
+popup/item_4/id = 4
+
+[node name="Width" type="HBoxContainer" parent="VBoxContainer/PrimitiveSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PrimitiveSection/Width"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Width:"
+
+[node name="WidthSlider" type="HSlider" parent="VBoxContainer/PrimitiveSection/Width"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+min_value = 1.0
+value = 10.0
+
+[node name="WidthSpinner" type="SpinBox" parent="VBoxContainer/PrimitiveSection/Width"]
+layout_mode = 2
+min_value = 1.0
+value = 10.0
+rounded = true
+
+[node name="Height" type="HBoxContainer" parent="VBoxContainer/PrimitiveSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PrimitiveSection/Height"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Height:"
+
+[node name="HeightSlider" type="HSlider" parent="VBoxContainer/PrimitiveSection/Height"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+min_value = 1.0
+value = 25.0
+
+[node name="HeightSpinner" type="SpinBox" parent="VBoxContainer/PrimitiveSection/Height"]
+layout_mode = 2
+min_value = 1.0
+value = 25.0
+rounded = true
+
+[node name="Segments" type="HBoxContainer" parent="VBoxContainer/PrimitiveSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PrimitiveSection/Segments"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Segments:"
+
+[node name="SegmentsSlider" type="HSlider" parent="VBoxContainer/PrimitiveSection/Segments"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+min_value = 4.0
+max_value = 128.0
+value = 64.0
+rounded = true
+
+[node name="SegmentsSpinner" type="SpinBox" parent="VBoxContainer/PrimitiveSection/Segments"]
+layout_mode = 2
+min_value = 4.0
+max_value = 128.0
+value = 64.0
+rounded = true
+
+[node name="Rings" type="HBoxContainer" parent="VBoxContainer/PrimitiveSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PrimitiveSection/Rings"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Rings:"
+
+[node name="RingsSlider" type="HSlider" parent="VBoxContainer/PrimitiveSection/Rings"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+min_value = 1.0
+max_value = 64.0
+value = 32.0
+rounded = true
+
+[node name="RingsSpinner" type="SpinBox" parent="VBoxContainer/PrimitiveSection/Rings"]
+layout_mode = 2
+min_value = 1.0
+max_value = 64.0
+value = 32.0
+rounded = true
+
+[node name="NoiseSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/NoiseSection"]
+layout_mode = 2
+text = "Noise Settings"
+horizontal_alignment = 1
+
+[node name="NoiseType" type="OptionButton" parent="VBoxContainer/NoiseSection"]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Perlin"
+popup/item_1/text = "Simplex"
+popup/item_1/id = 1
+popup/item_2/text = "Cellular"
+popup/item_2/id = 2
+popup/item_3/text = "Value"
+popup/item_3/id = 3
+
+[node name="Amplitude" type="HBoxContainer" parent="VBoxContainer/NoiseSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/NoiseSection/Amplitude"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Amplitude:"
+
+[node name="AmplitudeSlider" type="HSlider" parent="VBoxContainer/NoiseSection/Amplitude"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+min_value = 0.1
+max_value = 5.0
+step = 0.1
+value = 1.5
+
+[node name="AmplitudeSpinner" type="SpinBox" parent="VBoxContainer/NoiseSection/Amplitude"]
+layout_mode = 2
+min_value = 0.1
+max_value = 5.0
+step = 0.1
+value = 1.5
+
+[node name="Frequency" type="HBoxContainer" parent="VBoxContainer/NoiseSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/NoiseSection/Frequency"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Frequency:"
+
+[node name="FrequencySlider" type="HSlider" parent="VBoxContainer/NoiseSection/Frequency"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+min_value = 0.01
+max_value = 1.0
+step = 0.01
+value = 0.2
+
+[node name="FrequencySpinner" type="SpinBox" parent="VBoxContainer/NoiseSection/Frequency"]
+layout_mode = 2
+min_value = 0.01
+max_value = 1.0
+step = 0.01
+value = 0.2
+
+[node name="Seed" type="HBoxContainer" parent="VBoxContainer/NoiseSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/NoiseSection/Seed"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Seed:"
+
+[node name="SeedSpinner" type="SpinBox" parent="VBoxContainer/NoiseSection/Seed"]
+layout_mode = 2
+max_value = 9999.0
+rounded = true
+
+[node name="Octaves" type="HBoxContainer" parent="VBoxContainer/NoiseSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/NoiseSection/Octaves"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Octaves:"
+
+[node name="OctavesSpinner" type="SpinBox" parent="VBoxContainer/NoiseSection/Octaves"]
+layout_mode = 2
+min_value = 1.0
+max_value = 6.0
+value = 3.0
+rounded = true
+
+[node name="FloorSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/FloorSection"]
+layout_mode = 2
+text = "Floor Settings"
+horizontal_alignment = 1
+
+[node name="AddFloor" type="CheckBox" parent="VBoxContainer/FloorSection"]
+layout_mode = 2
+button_pressed = true
+text = "Add Floor"
+
+[node name="FloorHeight" type="HBoxContainer" parent="VBoxContainer/FloorSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/FloorSection/FloorHeight"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Floor Height:"
+
+[node name="HeightSlider" type="HSlider" parent="VBoxContainer/FloorSection/FloorHeight"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+min_value = -10.0
+max_value = 10.0
+step = 0.1
+
+[node name="HeightSpinner" type="SpinBox" parent="VBoxContainer/FloorSection/FloorHeight"]
+layout_mode = 2
+min_value = -10.0
+max_value = 10.0
+step = 0.1
+
+[node name="FloorRoughness" type="HBoxContainer" parent="VBoxContainer/FloorSection"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/FloorSection/FloorRoughness"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Floor Roughness:"
+
+[node name="RoughnessSlider" type="HSlider" parent="VBoxContainer/FloorSection/FloorRoughness"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+max_value = 1.0
+step = 0.01
+value = 0.2
+
+[node name="RoughnessSpinner" type="SpinBox" parent="VBoxContainer/FloorSection/FloorRoughness"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.2
+
+[node name="ButtonSection" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GenerateButton" type="Button" parent="VBoxContainer/ButtonSection"]
+layout_mode = 2
+text = "Generate Preview"
+
+[node name="ApplyButton" type="Button" parent="VBoxContainer/ButtonSection"]
+layout_mode = 2
+text = "Apply to Scene"
